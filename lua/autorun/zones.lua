@@ -7,13 +7,13 @@
 	of safezones, where players can build in peace and not get killed.
 	Designed to make compatibility with admin mods easy.
 
-	Includes: 
-		- safezones 
-		- Per zone permissions 
+	Includes:
+		- safezones
+		- Per zone permissions
 		- Default safezone spawns
-		- Custom spawns 
-		- Decorative designs 
-		- GUI to manage safezones 
+		- Custom spawns
+		- Decorative designs
+		- GUI to manage safezones
 		- Clientside interaction
 		- Teleporters for interzone-transportation.
 ]]--
@@ -37,10 +37,10 @@ if CLIENT then
 end
 
 -- compat files
-local f = file.Find( "compatibility/*", "LUA" ) 
-for k,v in pairs( f ) do
-	if SERVER then 
+local f = file.Find( "compatibility/*", "LUA" )
+for _, v in pairs( f ) do
+	if SERVER then
 		AddCSLuaFile( "compatibility/" .. v )
-	end 
+	end
 	include( "compatibility/" .. v )
-end 
+end
