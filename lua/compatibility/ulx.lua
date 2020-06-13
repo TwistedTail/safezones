@@ -12,6 +12,8 @@ if SERVER then
 			err( ply )
 		end
 
+		if not Zones.Teleport:GetBool() then return end -- Don't check for teleporting
+
 		if cmd == "ulx goto" then
 			err( ply )
 		end

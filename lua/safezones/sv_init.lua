@@ -12,7 +12,8 @@ if not Zones then
 		teleporters = {},
 		edit = {},
 		MAP = game.GetMap(),
-		Noclip = CreateConVar("safezones_noclip", 1, FCVAR_ARCHIVE + FCVAR_NOTIFY, "Defines whether players can only noclip inside safezones.", 0, 1)
+		Noclip = CreateConVar("safezones_noclip", 1, FCVAR_ARCHIVE + FCVAR_NOTIFY, "Defines whether players can only noclip inside safezones.", 0, 1),
+		Teleport = CreateConVar("safezones_teleport", 1, FCVAR_ARCHIVE + FCVAR_NOTIFY, "Defines whether players can only teleport inside safezones.", 0, 1)
 	}
 end
 
