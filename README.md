@@ -1,7 +1,7 @@
 # Safezones
 ## Safezones are an addon for Garry's Mod that allow for administrators to create zones where noclip and god mode are enabled and no prop damage is allowed.
 
-### If you have any issues or request, please create new issue about it here: http://github.com/Stooberton/safezones/issues [GitHub](http://github.com/stooberton/issues)
+### If you have any issues or request, please create new issue about it here: http://github.com/Stooberton/safezones/issues
 
 #### Instructions:
 * You must be Super Admin to use this.
