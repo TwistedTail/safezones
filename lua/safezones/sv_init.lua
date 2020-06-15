@@ -215,11 +215,9 @@ function Zones.newZone( name, caller )
 	zone._points = { top, mid, bot }
 	for I = 1, #zone._points do
 		zone._points[I]:CallOnRemove("safezones_pointremoved", function(Ent) -- Remove all the points if one is removed
-			print("REMOVED")
 			for K = 1 , #zone._points do
 				local P = zone._points[K]
 				if IsValid(P) then
-					print("REMOVE", P)
 					P:RemoveCallOnRemove("safezones_pointremoved")
 					P:Remove()
 				end
