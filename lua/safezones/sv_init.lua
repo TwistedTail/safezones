@@ -213,6 +213,21 @@ function Zones.newZone( name, caller )
 	-- todo; non-lazy cleanup strategy.
 	-- For Cleanup:
 	zone._points = { top, mid, bot }
+	for I = 1, #zone._points do
+		zone._points[I]:CallOnRemove("safezones_pointremoved", function(Ent) -- Remove all the points if one is removed
+			print("REMOVED")
+			for K = 1 , #zone._points do
+				local P = zone._points[K]
+				if IsValid(P) then
+					print("REMOVE", P)
+					P:RemoveCallOnRemove("safezones_pointremoved")
+					P:Remove()
+				end
+			end
+
+			hook.Remove("Tick", "Safezones_editing") -- Stop editing if any points are removed
+		end)
+	end
 
 	hook.Add( "Tick", "Safezones_editing", function()
 		-- More efficient than calling :GetPos each time
@@ -245,11 +260,12 @@ function Zones.newZone( name, caller )
 	 	zone:SetMin( round(bpos) )
 	 	zone:SetMax( round(tpos) )
 	 	zone:CalculateCorners()
+
 	 	Zones.sendData()
+
 	 	bot._oldpos = bpos
 	 	mid._oldpos = mpos
 	 	top._oldpos = tpos
-
 	end )
 end
 
