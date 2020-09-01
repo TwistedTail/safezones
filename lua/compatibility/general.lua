@@ -1,4 +1,4 @@
-local function BlockSpawning(Ply, Model, Ent)
+local function BlockSpawning(_, Model, Ent)
     Ent = Ent or Model
 
     if IsValid(Ent) and Ent:InSafeZone() then
