@@ -1,4 +1,6 @@
 if SERVER then
+	local Teleport = Zones.Teleport
+
 	local function err( ply, msg )
 		ULib.tsayError( ply, "You're not in a safezone!" or msg )
 	end
@@ -12,7 +14,7 @@ if SERVER then
 			err( ply )
 		end
 
-		if not Zones.Teleport:GetBool() then return end -- Don't check for teleporting
+		if not Teleport:GetBool() then return end -- Don't check for teleporting
 
 		if cmd == "ulx goto" then
 			err( ply )
@@ -27,6 +29,7 @@ if SERVER then
 		if not IsValid( caller ) then return end
 		if caller:IsAdmin() then return end
 		if cmd ~= "ulx goto" then return end
+		if not Teleport:GetBool() then return end -- Don't check for teleporting
 
 		if not caller:InSafeZone() then
 			ULib.tsayError( caller, "You're not in a safezone!" )
