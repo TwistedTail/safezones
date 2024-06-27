@@ -26,10 +26,10 @@ if SERVER then
 		return false
 	end
 
-	hook.Add("ACF_BulletDamage", "SafeZone_ACF", function(_, Entity, _, _, _, Inflictor, _, Weapon)
+	hook.Add("ACF_PreDamageEntity", "SafeZone_ACF", function(Entity, _, DmgInfo)
 		if IsProtected(Entity) then return false end
-		if IsProtected(Inflictor) then return false end
-		if IsProtected(Weapon) then return false end
+		if IsProtected(DmgInfo:GetAttacker()) then return false end
+		if IsProtected(DmgInfo:GetInflictor()) then return false end
 	end)
 
 	hook.Add("ACF_FireShell", "SafeZone_FireShell", function(Weapon)
